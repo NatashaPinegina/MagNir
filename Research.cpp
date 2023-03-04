@@ -54,11 +54,11 @@ void Research::research(int kol){
                 Distance[j] = FindDistance(koordSat[j], koordSource[i]);
 
             vector<double> deltaT(KolSat, 0);
-            for (int j = 1; j < KolSat; j++) {
-                if (j == KolSat - 1)
-                    deltaT[j] = FindDeltaTime(Distance[i], Distance[i - 1]);
+            for (int j = 0; j < KolSat; j++) {
+                if (j == KolSat-1)
+                    deltaT[j] = FindDeltaTime(Distance[0], Distance[j]);
                 else
-                    deltaT[j] = FindDeltaTime(Distance[0], Distance[i]);
+                    deltaT[j] = FindDeltaTime(Distance[j+1], Distance[j]);
             }
             double t = 0;
             for (int j = 0; j < KolSat; j++)
