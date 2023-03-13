@@ -6,6 +6,8 @@
 #define MAGNIR_RESEARCH_H
 #define c 299792.458 /**скорость света в км/с.*/
 #include <iostream>
+#include <vector>
+#include <string>
 using namespace std;
 
 struct Koord /**структура для координат источников и спутников*/
@@ -21,8 +23,9 @@ public:
     /**Function*/
     double FindDistance(Koord koordSat, Koord koordSource);/**определение расстояния между источником и спутником.*/
     double FindDeltaTime(double Ram, double Rbm);/**определение временной задержки между парой спутников.*/
-    void research(int kol);/**запуск исследования*/
+    void research(double kol);/**запуск исследования*/
     double DoubleRand(double _max, double _min);
+    vector<double> criteria(vector<vector<double>>& delays);
 
     /**Variables*/
     int KolSour;/**Кол-во источников.*/
