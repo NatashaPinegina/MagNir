@@ -14,7 +14,7 @@ double Research::FindDistance(Koord koordSat, Koord koordSource)
 }
 
 double Research::FindDeltaTime(double Ram, double Rbm) {
-    return (Ram-Rbm)/c;
+    return (Ram-Rbm);
 }
 
 double Research::DoubleRand(double _max, double _min)
@@ -40,7 +40,7 @@ vector<double> Research::criteria(vector<vector<double>>& delays)
             for (int m = 0; m < delays[0].size(); m++)// по столбцам
             {
                 summ += delays[s + 1][m];
-                if (abs(summ) < 1e-4)
+                if (abs(summ) < 1e-8)
                 {
                     SummDelays.push_back(summ);
                     string stroka = to_string(i) + to_string(k) + to_string(m);
@@ -68,17 +68,17 @@ void Research::research(double kol){
         vector<Koord> koordSat;
         koordSat.resize(KolSat);
         for (int i = 0; i < KolSat; i++) {
-            koordSat[i].x = DoubleRand(0, 36000);
-            koordSat[i].y = DoubleRand(0, 36000);
-            koordSat[i].z = DoubleRand(0, 36000);
+            koordSat[i].x = DoubleRand(36000, 25000);
+            koordSat[i].y = DoubleRand(36000, 25000);
+            koordSat[i].z = DoubleRand(36000, 25000);
         }
 
         vector<Koord> koordSource;
         koordSource.resize(KolSour);
         for (int i = 0; i < KolSour; i++) {
-            koordSource[i].x = DoubleRand(0, 36000);
-            koordSource[i].y = DoubleRand(0, 36000);
-            koordSource[i].z = DoubleRand(0, 36000);
+            koordSource[i].x = DoubleRand(7000, 0);
+            koordSource[i].y = DoubleRand(7000, 0);
+            koordSource[i].z = DoubleRand(7000, 0);
         }
 
         int kolPrav = 0;
